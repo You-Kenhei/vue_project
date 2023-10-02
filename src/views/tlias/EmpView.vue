@@ -14,7 +14,7 @@
             </el-submenu>
           </el-menu>
         </el-aside>
-        
+
         <el-main>
           <!-- Form表单 -->
           <el-form :inline="true" :model="searchForm" class="demo-form-inline">
@@ -28,7 +28,7 @@
               </el-select>
             </el-form-item>
             <el-form-item label="入职日期">
-              <el-date-picker v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期"
+              <el-date-picker v-model="searchForm.entrydate" type="daterange" range-separator="至" start-placeholder="开始日期"
                 end-placeholder="结束日期">
               </el-date-picker>
             </el-form-item>
@@ -61,7 +61,8 @@ export default {
       tableData: [],
       searchForm: {
         name: "",
-        gender: ""
+        gender: "",
+        entrydate: []
       }
     }
   },
