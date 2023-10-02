@@ -1,17 +1,20 @@
 <template>
   <div>
     <el-container style="height: 700px; border: 1px solid #eee">
+
       <el-header style="font-size: 40px; background-color: rgb(238, 241, 246)">tlias 智能学习辅助系统</el-header>
+
       <el-container>
-        <el-aside width="200px"><el-menu :default-openeds="['1', '3']">
+        <el-aside width="200px">
+          <el-menu :default-openeds="['1', '3']">
             <el-submenu index="1">
               <template slot="title"><i class="el-icon-message"> </i>系统信息管理</template>
-
               <el-menu-item index="1-1">部门管理</el-menu-item>
               <el-menu-item index="1-2">员工管理</el-menu-item>
             </el-submenu>
           </el-menu>
         </el-aside>
+        
         <el-main>
           <!-- Form表单 -->
           <el-form :inline="true" :model="searchForm" class="demo-form-inline">
@@ -20,9 +23,14 @@
             </el-form-item>
             <el-form-item label="性别">
               <el-select v-model="searchForm.gender" placeholder="性别">
-                <el-option label="男" value="shanghai"></el-option>
-                <el-option label="女" value="beijing"></el-option>
+                <el-option label="男" value="1"></el-option>
+                <el-option label="女" value="2"></el-option>
               </el-select>
+            </el-form-item>
+            <el-form-item label="入职日期">
+              <el-date-picker v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期"
+                end-placeholder="结束日期">
+              </el-date-picker>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="onSubmit">查询</el-button>
@@ -52,11 +60,16 @@ export default {
     return {
       tableData: [],
       searchForm: {
-        name: "", 
+        name: "",
         gender: ""
       }
     }
-  }
+  },
+  methods: {
+    onSubmit() {
+      alert(JSON.stringify(this.searchForm))
+    }
+  },
 };
 </script>
 
