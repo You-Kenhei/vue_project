@@ -84,6 +84,12 @@ export default {
     handleCurrentChange(val) {
       alert(val);
     }
+  },
+  mounted() {
+    axios.get('localhost:8080/test').then((result) => {
+      console.log(result.data.data);
+      this.tableData = result.data.data;
+    });
   }
 };
 </script>
