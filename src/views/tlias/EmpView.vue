@@ -14,14 +14,14 @@
         </el-aside>
         <el-main>
           <!-- Form表单 -->
-          <el-form :inline="true" :model="formInline" class="demo-form-inline">
-            <el-form-item label="审批人">
-              <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+          <el-form :inline="true" :model="searchForm" class="demo-form-inline">
+            <el-form-item label="姓名">
+              <el-input v-model="searchForm.name" placeholder="姓名"></el-input>
             </el-form-item>
-            <el-form-item label="活动区域">
-              <el-select v-model="formInline.region" placeholder="活动区域">
-                <el-option label="区域一" value="shanghai"></el-option>
-                <el-option label="区域二" value="beijing"></el-option>
+            <el-form-item label="性别">
+              <el-select v-model="searchForm.gender" placeholder="性别">
+                <el-option label="男" value="shanghai"></el-option>
+                <el-option label="女" value="beijing"></el-option>
               </el-select>
             </el-form-item>
             <el-form-item>
@@ -50,7 +50,11 @@
 export default {
   data() {
     return {
-      tableData: []
+      tableData: [],
+      searchForm: {
+        name: "", 
+        gender: ""
+      }
     }
   }
 };
