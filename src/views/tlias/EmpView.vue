@@ -1,11 +1,11 @@
 <template>
   <div>
     <el-container style="height: 700px; border: 1px solid #eee">
-      <el-header style="font-size: 40px; background-color: rgb(238, 241, 246)">tlias
-        智能学习辅助系统</el-header>
+      <el-header style="font-size: 40px; background-color: rgb(238, 241, 246)">
+        tlias智能学习辅助系统</el-header>
 
       <el-container>
-        <el-aside width="200px">
+        <el-aside width="230px" style="border: 1px solid #eee">
           <el-menu :default-openeds="['1', '3']">
             <el-submenu index="1">
               <template slot="title"><i class="el-icon-message">
@@ -39,8 +39,16 @@
           </el-form>
           <el-table :data="tableData" border>
             <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-            <el-table-column prop="image" label="图像" width="180"></el-table-column>
-            <el-table-column prop="gender" label="性别" width="140"></el-table-column>
+            <el-table-column prop="image" label="图像" width="180">
+              <template slot-scope="scope">
+                <img :src="scope.row.image" width="130px" height="100px">
+              </template>
+            </el-table-column>
+            <el-table-column label="性别" width="140">
+              <template slot-scope="scope">
+                {{scope.row.gender==1?'男':'女'}}
+              </template>
+            </el-table-column>
             <el-table-column prop="job" label="职位" width="140"></el-table-column>
             <el-table-column prop="entrydate" label="入职日期" width="180"></el-table-column>
             <el-table-column prop="updatetime" label="最后操作时间" width="230"></el-table-column>
@@ -86,7 +94,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('http://localhost:8080/test').then((result) => {
+    axios.get('http://localhost:8081/test').then((result) => {
       console.log(result.data.data);
       this.tableData = result.data.data;
     });
