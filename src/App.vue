@@ -3,24 +3,23 @@
     <!-- <h1>{{ message }}</h1> -->
     <!-- <element-view></element-view> -->
 
-    <emp-view></emp-view>
+    <!-- <emp-view></emp-view> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import EmpView from './views/tlias/EmpView.vue';
+// import EmpView from './views/tlias/EmpView.vue';
 // import ElementView from './views/element/ElementView.vue';
 
 export default {
-  components: { /* ElementView, */EmpView },
-  data () {
+  // components: { /* ElementView, */EmpView },
+  data() {
     return {
-      message:"Hello Vue"
-    }
+      message: 'Hello Vue'
+    };
   },
-  methods: {
-
-  }
+  methods: {}
 };
 </script>
 
