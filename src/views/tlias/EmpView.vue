@@ -38,8 +38,8 @@
             </el-form-item>
           </el-form>
           <el-table :data="tableData" border>
-            <el-table-column prop="date" label="姓名" width="180"></el-table-column>
-            <el-table-column prop="name" label="图像" width="180"></el-table-column>
+            <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+            <el-table-column prop="image" label="图像" width="180"></el-table-column>
             <el-table-column prop="gender" label="性别" width="140"></el-table-column>
             <el-table-column prop="job" label="职位" width="140"></el-table-column>
             <el-table-column prop="entrydate" label="入职日期" width="180"></el-table-column>
@@ -86,7 +86,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('localhost:8080/test').then((result) => {
+    axios.get('http://localhost:8080/test').then((result) => {
       console.log(result.data.data);
       this.tableData = result.data.data;
     });
